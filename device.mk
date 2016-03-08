@@ -168,7 +168,7 @@ PRODUCT_PACKAGES += \
     libOmxVdecHevc \
     libOmxVenc
 
-#CAMERA
+# CAMERA
 PRODUCT_PACKAGES += \
     camera.msm8994 \
     libcamera \
@@ -199,6 +199,7 @@ PRODUCT_PACKAGES += \
 
 # NFC
 PRODUCT_PACKAGES += \
+    com.android.nfc_extras \
     libnfc-nci \
     nfc_nci.angler \
     NfcNci \
@@ -359,8 +360,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.image-dex2oat-threads=4
 
 # old-apns.conf
-PRODUCT_COPY_FILES += \
-    device/huawei/angler/old-apns-conf.xml:system/etc/old-apns-conf.xml
+# PRODUCT_COPY_FILES += \
+#     device/huawei/angler/old-apns-conf.xml:system/etc/old-apns-conf.xml
 
 # Modem debugger
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
@@ -403,3 +404,8 @@ $(call inherit-product-if-exists, vendor/qcom/gpu/msm8994/msm8994-gpu-vendor.mk)
 
 # copy wlan firmware
 $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4358/device-bcm.mk)
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.usb.config=mtp,adb \
+    ro.adb.secure=0
+    ro.du.updater=angler
