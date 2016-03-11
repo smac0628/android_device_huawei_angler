@@ -407,5 +407,5 @@ $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4358
 
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mtp,adb \
-    ro.adb.secure=0
+    ro.adb.secure=0 \
     ro.du.updater=angler
